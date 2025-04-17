@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramya Anche's Personal Website</title>
+    <title> </title>
     <style>
         body {
             margin: 0;
@@ -13,25 +13,59 @@
             background-color: #fff;
             color: #333;
         }
+        /* Header with Name */
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #333;
+        }
+        /* Navigation Bar */
+        .nav {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #fff;
+        }
+        .nav a {
+            margin: 0 20px;
+            font-size: 1.2em;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+        .nav a.active {
+            font-weight: bold;
+            color: #0056b3;
+        }
+        /* Cover Image */
         .cover-image {
             width: 100%;
             height: 500px;
             object-fit: cover;
         }
+        /* Main Content */
         .content {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
             text-align: center;
         }
-        h1 {
-            font-size: 2.5em;
+        .content h2 {
+            font-size: 2em;
             margin-bottom: 10px;
         }
         p {
             font-size: 1.1em;
             margin-bottom: 20px;
         }
+        /* Social Links */
         .social-links {
             list-style: none;
             padding: 0;
@@ -52,9 +86,21 @@
     </style>
 </head>
 <body>
-    <img src="/images/cover-image.jpg" alt="Star trails over a mountain range" class="cover-image">
-    <div class="content">
+    <!-- Header with Name -->
+    <div class="header">
         <h1>Ramya Anche</h1>
+    </div>
+    <!-- Navigation Tabs -->
+    <div class="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="cv.html">CV</a>
+    </div>
+    <!-- Cover Image -->
+    <img src="/images/cover-image.jpg" alt="Star trails over a mountain range" class="cover-image">
+    <!-- Main Content -->
+    <div class="content">
+        <h2>About Me</h2>
         <p>Hi, I'm Ramya Anche! I'm a [your profession, e.g., data scientist, photographer, software engineer] with a deep fascination for the cosmos and the beauty of nature. Based in [your location], I find inspiration in the night sky, just like the star trails in my cover image, captured over a serene mountain range. When I'm not [your work, e.g., coding, analyzing data], I’m out exploring the outdoors, capturing the wonders of the universe through photography, or sharing my adventures and projects here. Let’s connect and explore the stars together!</p>
         <ul class="social-links">
             <li><a href="https://github.com/ramya-anche">GitHub</a></li>
