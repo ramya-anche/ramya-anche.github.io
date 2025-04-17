@@ -73,17 +73,30 @@
         /* Hero Section */
         .hero {
         height: 100vh;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/cover-image.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
         color: #fff;
         padding: 2rem;
-    }
+        position: relative;
+        overflow: hidden;
+        }
+
+        .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/cover-image.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: brightness(1.3);
+        z-index: -1;
+        }
 
         .hero h1 {
             font-size: 3rem;
@@ -295,7 +308,7 @@
             <div class="bio">
                 <h2>About Me</h2>
                 <p>I am a postdoctoral research associate at the Steward Observatory, University of Arizona, working on polarimetry and high-contrast imaging of exoplanets. Previously, I was a WALOP instrument postdoc at IUCCA, India.
-            I graduated with my Ph.D. from Indian Institute of Astrophysics (IIA) and University of Calcutta in Jan 2020 and in July 2014 with a Masters in Astronomical Instrumentation from IIA and University of Calcutta. </p>
+            I graduated with my Ph.D. in Applied Optics in Jan 2020 and Masters (MTech) in Astronomical Instrumentation in July 2014 from Indian Institute of Astrophysics (IIA) and University of Calcutta and Bachelors of Engineering (BE) in Electrical and Electronics from VTU, Belgaum. </p>
             </div>
         </div>
     </section>
