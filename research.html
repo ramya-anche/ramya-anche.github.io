@@ -1,0 +1,128 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row =>
+                    row.some(cell => cell !== '' && cell !== null && cell !== undefined)
+                );
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Ramya Anche</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Ramya Anche</div>
+            <ul class="nav-links">
+                <li><a href="./index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="./research.html" class="active"><i class="fas fa-flask"></i> Research</a></li>
+                <li><a href="./teaching.html"><i class="fas fa-chalkboard-teacher"></i> Teaching</a></li>
+                <li><a href="./outreach.html"><i class="fas fa-globe"></i> Outreach & Science Communication</a></li>
+                <li><a href="./cv.html"><i class="fas fa-file-alt"></i> CV</a></li>
+                <li class="theme-toggle">
+                    <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2>Skills</h2>
+                <div class="skills-list">
+                    <span class="skill">Optical design and analysis: Optics Studio</span>
+                    <span class="skill">Disk modeling: MCFOST</span>
+                    <span class="skill">Programming: Python</span>
+                    <span class="skill">Programming: Matlab</span>
+                    <span class="skill">Programming: Mathematica</span>
+                    <span class="skill">Physical Optics Propagation and analysis: Poppy</span>
+                    <span class="skill">Physical Optics Propagation and analysis: Hcipy</span>
+                </div>
+            </div>
+        </section>
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2>Research Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/300x200" alt="Polarization aberrations">
+                        <div class="content">
+                            <h3>Polarization Aberrations</h3>
+                            <p>Research on polarization aberrations in high-contrast imaging systems for astronomical telescopes.</p>
+                            <div class="project-links">
+                                <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/300x200" alt="WALOP Instrument">
+                        <div class="content">
+                            <h3>WALOP Instrument Development</h3>
+                            <p>Contributed to the development of the Wide-Area Linear Optical Polarimeter (WALOP) for PASIPHAE survey.</p>
+                            <div class="project-links">
+                                <a href="https://pasiphae.science/" target="_blank"><i class="fas fa-external-link-alt"></i> View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/300x200" alt="Disk Modeling">
+                        <div class="content">
+                            <h3>Disk Modeling with MCFOST</h3>
+                            <p>Modeling circumstellar disks using MCFOST to analyze polarimetric data from telescopes.</p>
+                            <div class="project-links">
+                                <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Feel free to reach out to me via email or connect with me on social media.</p>
+            <p>Email: <a href="mailto:ramya.anche@example.com">ramya.anche@example.com</a></p>
+            <div class="social-links">
+                <a href="https://github.com/ramya-anche" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ramyamanjunath/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>© 2025 Ramya Anche. All rights reserved.</p>
+    </footer>
+    <script src="./script.js"></script>
+</body>
+</html>
