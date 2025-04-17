@@ -3,111 +3,389 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> </title>
+    <title>Ramya Anche | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            background-color: #fff;
             color: #333;
+            background-color: #f9f9f9;
         }
-        /* Header with Name */
-        .header {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #f8f8f8;
-            border-bottom: 1px solid #ddd;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            color: #333;
-        }
-        /* Navigation Bar */
-        .nav {
-            text-align: center;
-            padding: 10px 0;
+
+        /* Navbar */
+        .navbar {
             background-color: #fff;
-        }
-        .nav a {
-            margin: 0 20px;
-            font-size: 1.2em;
-            color: #007bff;
-            text-decoration: none;
-        }
-        .nav a:hover {
-            text-decoration: underline;
-        }
-        .nav a.active {
-            font-weight: bold;
-            color: #0056b3;
-        }
-        /* Cover Image */
-        .cover-image {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
             width: 100%;
-            height: 500px;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #3498db;
+        }
+
+        .navbar .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #2c3e50;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        /* About Section */
+        .about .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about img {
+            max-width: 300px;
+            border-radius: 50%;
+        }
+
+        .about .bio {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .skill-item {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
             object-fit: cover;
         }
-        /* Main Content */
-        .content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: left;
+
+        .project-card .content {
+            padding: 1.5rem;
         }
-        .content h2 {
-            font-size: 2em;
-            margin-bottom: 10px;
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
         }
-        p {
-            font-size: 1.1em;
-            margin-bottom: 20px;
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 1rem;
         }
-        /* Social Links */
-        .social-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .social-links li {
-            display: inline;
-            margin: 0 15px;
-        }
-        .social-links a {
-            color: #007bff;
+
+        .project-card a {
             text-decoration: none;
-            font-size: 1.1em;
+            color: #3498db;
+            font-weight: 500;
         }
-        .social-links a:hover {
-            text-decoration: underline;
+
+        /* Contact Section */
+        .contact p {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .contact .social-links a {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .contact .social-links a:hover {
+            color: #3498db;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                padding: 1rem;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .navbar .nav-links.active {
+                display: flex;
+            }
+
+            .navbar .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about .container {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header with Name -->
-    <div class="header">
-        <h1>Ramya Manjunath Anche</h1>
-    </div>
-    <!-- Navigation Tabs -->
-    <div class="nav">
-        <a href="index.html" class="active">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="cv.html">CV</a>
-    </div>
-    <!-- Cover Image -->
-    <img src="/images/cover-image.jpg" alt="Long exposure startrails captured by me at Indian Astronomical Observatory (IAO) at Leh, India" class="cover-image">
-    <!-- Main Content -->
-    <div class="content">
-        <h2>About Me</h2>
-        <p>I am a postdoctoral research associate at the Steward Observatory, University of Arizona, working on polarimetry and high-contrast imaging of exoplanets. Previously, I was a WALOP instrument postdoc at IUCCA, India.
-            I graduated with my Ph.D. from Indian Institute of Astrophysics (IIA) and University of Calcutta in Jan 2020 and in July 2014 with a Masters in Astronomical Instrumentation from IIA and University of Calcutta.</p>
-        <ul class="social-links">
-            <li><a href="https://github.com/ramya-anche">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/ramyamanjunath/">LinkedIn</a></li>
-            <li><a href="mailto:ramyamanjunath1990@gmail.com">Email</a></li>
-        </ul>
-    </div>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Ramya Anche</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Hi, I'm Ramya Anche</h1>
+            <p>I'm a passionate software developer with a focus on web development and machine learning. Welcome to my portfolio!</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <img src="https://via.placeholder.com/300" alt="Ramya Anche">
+            <div class="bio">
+                <h2>About Me</h2>
+                <p>I am a postdoctoral research associate at the Steward Observatory, University of Arizona, working on polarimetry and high-contrast imaging of exoplanets. Previously, I was a WALOP instrument postdoc at IUCCA, India.
+            I graduated with my Ph.D. from Indian Institute of Astrophysics (IIA) and University of Calcutta in Jan 2020 and in July 2014 with a Masters in Astronomical Instrumentation from IIA and University of Calcutta. </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">HTML</div>
+                <div class="skill-item">CSS</div>
+                <div class="skill-item">JavaScript</div>
+                <div class="skill-item">Python</div>
+                <div class="skill-item">React</div>
+                <div class="skill-item">Node.js</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 1">
+                    <div class="content">
+                        <h3>Project 1</h3>
+                        <p>A web application built with React and Node.js to [describe project].</p>
+                        <a href="#">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 2">
+                    <div class="content">
+                        <h3>Project 2</h3>
+                        <p>A machine learning model for [describe project].</p>
+                        <a href="#">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 3">
+                    <div class="content">
+                        <h3>Project 3</h3>
+                        <p>A responsive website for [describe project].</p>
+                        <a href="#">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Feel free to reach out to me via email or connect with me on social media.</p>
+            <p>Email: <a href="mailto:ramyamanjunath1990@.com">your.email@example.com</a></p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Ramya Anche. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu after clicking
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
